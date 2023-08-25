@@ -17,6 +17,7 @@
     "colors": "^1.4.0",
     "discord-html-transcripts": "^3.1.4",
     "discord.js": "^14.13.0",
+    "email": "^0.2.6",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "ms": "^2.1.3",
