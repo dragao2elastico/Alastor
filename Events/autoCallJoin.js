@@ -1,12 +1,12 @@
 require('../index')
-
+const config = require("../config")
 const Discord = require('discord.js')
 const client = require('../index')
 
 const { joinVoiceChannel } = require('@discordjs/voice');
 
 client.on("ready", () => {
-  let canal = client.channels.cache.get("1024515818052128869") // coloque o ID do canal de voz
+  let canal = client.channels.cache.get(config.voiceChannel) // coloque o ID do canal de voz
   if (!canal) return console.log("❌ Não foi possível entrar no canal de voz.")
   if (canal.type !== Discord.ChannelType.GuildVoice) return console.log(`❌ Não foi possível entrar no canal [ ${canal.name} ].`)
 
