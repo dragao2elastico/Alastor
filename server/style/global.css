@@ -1,0 +1,14 @@
+.spoiler-container {
+    background-color: #36393f;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .spoiler-content {
+    display: none;
+  }
+  
+  .spoiler-container.show .spoiler-content {
+    display: block;
+  }
