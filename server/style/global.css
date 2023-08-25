@@ -1,14 +1,26 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
 .spoiler-container {
-    background-color: #36393f;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .spoiler-content {
-    display: none;
-  }
-  
-  .spoiler-container.show .spoiler-content {
-    display: block;
-  }
+  background-color: #36393f;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.spoiler-content {
+  display: none;
+  color: white;
+}
+
+.spoiler-container.show .spoiler-content {
+  display: block;
+}
+
+.spacer {
+  margin-bottom: 20px;
+}
