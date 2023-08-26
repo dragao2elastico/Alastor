@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const axios = require("axios");
 const prompt = require("prompt-sync")();
+const ejs = require("ejs");
 require("colors");
 
 var askPort = false;
@@ -37,8 +38,14 @@ app.get('/:ip', async (req, res) => {
         const response = await axios.get("https://api.ipify.org?format=json");
         const publicIP = response.data.ip;
 
-        res.sendFile(path.join(__dirname, 'ip.html'), {
-            ip: publicIP
+        // Renderize o arquivo HTML usando o EJS e passe os dados dinâmicos
+        ejs.renderFile(path.join(__dirname, 'ip.html'), { ip: publicIP }, (err, html) => {
+            if (err) {
+                console.error("Error rendering HTML: ", err);
+                res.status(500).send("Error rendering HTML");
+            } else {
+                res.send(html);
+            }
         });
     } catch (error) {
         console.error("Error fetching IP: ", error);
