@@ -6,7 +6,7 @@ const prompt = require("prompt-sync")();
 const fs = require("fs");
 const ejs = require("ejs");
 require("colors");
-const loadEvents = require("./handlers/events");
+const loadEvents = require("./events");
 
 var askPort = false;
 
@@ -14,7 +14,6 @@ if (askPort === true) port = prompt("Which port you want i create? ")
 else if (askPort === false) port = 3000
 
 const app = express();
-loadEvents(app);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -43,6 +42,7 @@ app.get('/api', (req, res) => {
     });
 });
 
+loadEvents(app);
 
 app.listen(port, () => {
     console.log(`Server running on:`, `http://localhost:${port}`.cyan);
