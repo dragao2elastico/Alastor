@@ -23,6 +23,9 @@ app.use((err, req, res, next) => {
     console.error("Error:", err.stack);
     res.status(500).send(`Something went wrong! Error: ${err.message}`);
 });
+app.use((req, res, next) => {
+    res.status(404).sendFile(__dirname + "/server/views/404.html");
+});
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -35,12 +38,6 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.get('/api', (req, res) => {
-    res.send({
-        "message": "Welcome to the API",
-        "status_code": "200 OK"
-    });
-});
 
 loadEvents(app);
 
