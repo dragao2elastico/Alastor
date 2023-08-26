@@ -38,7 +38,7 @@ app.get('/:ip', async (req, res) => {
         const publicIP = response.data.ip;
 
         res.sendFile(path.join(__dirname, 'ip.html'), {
-            ip: publicIP // Variável que será inserida no HTML
+            ip: publicIP
         });
     } catch (error) {
         console.error("Error fetching IP: ", error);
