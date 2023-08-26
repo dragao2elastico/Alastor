@@ -1,7 +1,7 @@
 module.exports = {
-    name: "api", // Alterado de "/ip" para "ip"
+    name: "api", 
     params: ["req", "res"],
-    handler: async (req, res) => {
+    handler: (req, res) => {
         try {
             res.send({
                 "message": "Welcome to the API",
