@@ -10,10 +10,21 @@
     <div class="spoiler-container" onclick="toggleSpoiler(this)">
         Click to show
         <div class="spoiler-content" id="ip">
-            Hello, this is your IP address: <span id="ip-address-placeholder"></span>
+            Hello, this is your IP address: <%= ip %>
+            <hr> <!-- Linha horizontal -->
+
+            <!-- Elemento de áudio -->
+            <audio controls>
+                <source src="/song.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
         </div>
     </div>
 
-    <script src="../scripts/ip.js"></script>
+    <script>
+        function toggleSpoiler(spoiler) {
+            spoiler.classList.toggle("show");
+        }
+    </script>
 </body>
 </html>
