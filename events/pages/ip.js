@@ -4,8 +4,8 @@ const fs = require("fs");
 const ejs = require("ejs");
 
 module.exports = {
-    name: "/ip", // Nome do evento
-    params: ["req", "res"], // Parâmetros do evento
+    name: "ip", // Alterado de "/ip" para "ip"
+    params: ["req", "res"],
     handler: async (req, res) => {
         try {
             const response = await axios.get("https://api.ipify.org?format=json");

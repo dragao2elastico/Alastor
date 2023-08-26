@@ -19,11 +19,10 @@ const loadEvents = (app) => {
                 const event = require(path.join(folderPath, file));
                 console.log("📒 Successfully loaded Event: ".green, event.name || file);
 
-                // Certifique-se de que o arquivo do evento exporta um objeto com 'name' e 'handler'
                 if (event.name && event.handler) {
-                    // Associe o evento ao Express app
-                    app.on(event.name, event.handler);
+                    app.get(`/${event.name}`, event.handler);
                 }
+                
             });
         });
     };
