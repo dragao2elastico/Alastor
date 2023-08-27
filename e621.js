@@ -1,6 +1,3 @@
-// const username = "dragao-elastico";
-// const apiKey = "dVLUoV1SKi6uf55bBebCtdwA";
-
 // const baseUrl = "https://e621.net/posts.json";
 
 // const headers = new Headers({
