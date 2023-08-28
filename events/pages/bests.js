@@ -33,7 +33,7 @@ module.exports = {
                 <div class="character">
                     <h2>${character.name}</h2>
                     <p>${character.description}</p>
-                    <button class="view-button" data-link="${character.link}">Ver mais</button>
+                    <a href="${character.link}"><button class="view-button" >Ver mais</button></a>
                 </div>
             `).join('');
 
