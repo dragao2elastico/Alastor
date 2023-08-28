@@ -39,7 +39,11 @@ app.use((req, res, next) => {
     const requestUrl = req.url;
 
     console.log(`👤 Client connected from IP: ${clientIp}`);
-    console.log(`👨‍💻User Agent: ${userAgent}`);
+    if (userAgent.includes('OPR/') || userAgent.includes('Opera GX')) {
+        console.log(`🖥  User Agent: ${userAgent} (Opera GX)`);
+    } else {
+        console.log(`🖥  User Agent: ${userAgent}`);
+    }
     console.log(`🗨  Request Method: ${requestMethod}`);
     console.log(`🔗 Request URL: ${requestUrl}`);
 
@@ -54,6 +58,7 @@ app.use((req, res, next) => {
     next();
 });
 
+loadEvents(app);
 
 app.get('/', (req, res) => {
     res.redirect('/home');
@@ -63,8 +68,8 @@ app.get('/home', (req, res) => {
     res.send('Welcome to the Home Page!');
 });
 
+
 loadErrors();
-loadEvents(app);
 
 module.exports = { app, version };
 

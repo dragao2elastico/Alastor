@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const app = require("./server");
+const wait = require('node:timers/promises').setTimeout;
 
 const loadEvents = (app) => {
     const eventsFolderPath = path.join(__dirname, 'events');
