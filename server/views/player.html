@@ -9,23 +9,24 @@
 <body>
     <div class="music-player">
         <div class="music-info">
-            <div class="music-thumb"></div>
+            <div class="music-thumb">
+                <img src="../imgs/music-player.jpg" alt="Thumb da Música">
+            </div>
             <div class="music-details">
-                <h2 class="music-title">Nome da Música</h2>
-                <p class="music-artist">Artista</p>
+                <h2 class="music-title">Escolha uma opção abaixo</h2>
             </div>
         </div>
-        <audio class="audio"></audio>
         <div class="music-controls">
             <button class="control-button prev-button">Anterior</button>
             <button class="control-button play-button">Tocar</button>
             <button class="control-button next-button">Próxima</button>
         </div>
+        <audio class="audio"></audio>
+        <div class="volume-slider-container">
+            <input type="range" class="volume-slider" min="0" max="100" value="50">
+        </div>
         <div class="progress-bar">
             <div class="progress"></div>
-        </div>
-        <div class="volume-slider-container">
-            <input class="volume-slider" type="range" min="0" max="100" value="50">
         </div>
     </div>
     <script src="../scripts/player.js"></script>

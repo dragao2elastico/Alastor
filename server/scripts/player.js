@@ -2,11 +2,10 @@ const playButton = document.querySelector('.play-button');
 const prevButton = document.querySelector('.prev-button');
 const nextButton = document.querySelector('.next-button');
 const progressBar = document.querySelector('.progress');
-const audioElement = document.querySelector('.audio');
 const volumeSlider = document.querySelector('.volume-slider');
+const audioElement = document.querySelector('.audio');
 const titleElement = document.querySelector('.music-title');
-const artistElement = document.querySelector('.music-artist');
-const thumbElement = document.querySelector('.music-thumb');
+const thumbElement = document.querySelector('.music-thumb img');
 
 let isPlaying = false;
 let currentSong = 0;
@@ -85,6 +84,5 @@ function updateAudioAndPlay() {
 function updateMusicInfo(songIndex) {
     const song = songs[songIndex];
     titleElement.textContent = song.title;
-    artistElement.textContent = 'Artista'; // Altere para o artista correto se necessário
-    thumbElement.style.backgroundImage = `url(${song.thumb})`;
+    thumbElement.src = song.thumb;
 }
