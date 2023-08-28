@@ -1,7 +1,7 @@
 require("colors");
 
 module.exports = {
-    name: "", 
+    name: "music", 
     handler: (req, res, next) => {
         try {
         } catch (error) {
