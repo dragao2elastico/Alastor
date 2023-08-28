@@ -31,10 +31,18 @@ app.use((err, req, res, next) => {
     res.status(500).send(`Something went wrong! Error: ${err.message}`);
 });
 
-loadEvents(app);
-
 app.use((req, res, next) => {
-    // Configuração básica do CORS para permitir todas as origens, métodos e headers
+    const clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+
+    const userAgent = req.headers['user-agent'];
+    const requestMethod = req.method;
+    const requestUrl = req.url;
+
+    console.log(`👤 Client connected from IP: ${clientIp}`);
+    console.log(`👨‍💻User Agent: ${userAgent}`);
+    console.log(`🗨  Request Method: ${requestMethod}`);
+    console.log(`🔗 Request URL: ${requestUrl}`);
+
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -42,15 +50,21 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Custom-Header');
     res.setHeader('Access-Control-Max-Age', '3600');
+
     next();
 });
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.redirect('/home');
+});
+
+app.get('/home', (req, res) => {
+    res.send('Welcome to the Home Page!');
 });
 
 loadErrors();
+loadEvents(app);
 
 module.exports = { app, version };
 
