@@ -19,11 +19,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/scripts', express.static(path.join(__dirname, 'server', 'scripts')));
 app.use('/style', express.static(path.join(__dirname, 'server', 'style')));
+app.use(express.static(path.join(__dirname, 'server', 'imgs')));
+
 app.use((err, req, res, next) => {
     console.error("Error:", err.stack);
     res.status(500).send(`Something went wrong! Error: ${err.message}`);
 });
-
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
