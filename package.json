@@ -28,7 +28,6 @@
     "nekos.life": "^3.0.0",
     "nodemon": "^3.0.1",
     "prompt-sync": "^4.2.0",
-    "quick.db": "^9.1.7",
-    "terminaltools": "^3.0.1-beta"
+    "quick.db": "^9.1.7"
   }
 }

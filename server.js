@@ -10,6 +10,7 @@ const ejs = require("ejs");
 require("colors");
 const loadEvents = require("./events");
 
+
 var askPort = false;
 
 if (askPort === true) port = prompt("Which port you want i create? ");
