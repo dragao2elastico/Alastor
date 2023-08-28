@@ -1,11 +1,11 @@
 const path = require('path');
 require('colors');
 
-module.exports = {
+module.exports = thisFile = {
     name: "about",
     handler: (req, res, next) => {
         try {
-            const filePath = path.join(__dirname, `../../server/views/${name}.html`);
+            const filePath = path.join(__dirname, `../../server/views/${thisFile.name}.html`);
             res.sendFile(filePath);
         } catch (error) {
             console.error('An Error Occurred: '.red, error);
