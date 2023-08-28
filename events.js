@@ -8,7 +8,7 @@ const loadEvents = (app) => {
     const loadEventsFromFolder = (folderPath, subfolderName) => {
         fs.readdir(folderPath, (error, files) => {
             if (error) {
-                console.error("Error reading event subfolder: ".red, error);
+                console.error("Error reading event subfolder:".red, error);
                 return;
             }
     
@@ -17,15 +17,15 @@ const loadEvents = (app) => {
                 const stats = fs.statSync(filePath);
     
                 if (stats.isDirectory()) {
-                    console.log("📂 Loading Endpoint Subfolder Events: ".yellow, file);
+                    console.log("📂 Loading Endpoint Subfolder Events:".yellow, file);
                     loadEventsFromFolder(filePath, subfolderName || file);
                 } else if (file.endsWith('.js') && !file.endsWith('.test.js')) {
                     const event = require(filePath);
 
                     if (subfolderName) {
-                        console.log("📒 Successfully loaded endpoint Event: ".green, `${subfolderName}/${event.name || file}`);
+                        console.log("📒 Successfully loaded Event:".green, `${event.name || file}`, `from`.green, `${subfolderName}`, `endpoint`.green);
                     } else {
-                        console.log("📒 Successfully loaded Event: ".green, event.name || file);
+                        console.log("📒 Successfully loaded Event:".green, event.name || file);
                     }
     
                     if (event.name && event.handler) {
@@ -39,7 +39,7 @@ const loadEvents = (app) => {
     
     const subfolders = fs.readdirSync(eventsFolderPath);
     subfolders.forEach(subfolder => {
-        console.log("📁 Loading Event Subfolder: ".yellow, subfolder);
+        console.log("📁 Loading Event Subfolder:".yellow, subfolder);
         const subfolderPath = path.join(eventsFolderPath, subfolder);
         loadEventsFromFolder(subfolderPath);
     });
