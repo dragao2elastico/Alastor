@@ -13,28 +13,28 @@ let currentSong = 0;
 
 const songs = [
     {
-        file: '../sounds/Come Along With Me.mp3',
-        thumb: '../thumbs/Come Along With Me.jpg',
+        file: '../sounds/Come-Along-With-Me.mp3',
+        thumb: '../imgs/Come-Along-With-Me.jpg',
         title: 'Come Along With Me'
     },
     {
-        file: '../sounds/Suffering Siblings.mp3',
-        thumb: '../thumbs/Suffering Siblings.jpg',
+        file: '../sounds/Suffering-Siblings.mp3',
+        thumb: '../imgs/Suffering-Siblings.jpg',
         title: 'Suffering Siblings'
     },
     {
         file: '../sounds/Corruptro.mp3',
-        thumb: '../thumbs/Corruptro.jpg',
+        thumb: '../imgs/Corruptro.jpg',
         title: 'Corruptro'
     },
     {
         file: '../sounds/Chiller.mp3',
-        thumb: '../thumbs/Chiller.jpg',
+        thumb: '../imgs/Chiller.jpg',
         title: 'Chiller'
     },
     {
-        file: '../sounds/Cycles P-Sides.mp3',
-        thumb: '../thumbs/Cycles P-Sides.jpg',
+        file: '../sounds/Cycles-P-Sides.mp3',
+        thumb: '../imgs/Cycles-P-Sides.jpg',
         title: 'Cycles P-Sides'
     }
 ];
