@@ -18,10 +18,15 @@ const loadEvents = (app) => {
     
                 if (stats.isDirectory()) {
                     console.log("📂 Loading Endpoint Subfolder Events: ".yellow, file);
-                    loadEventsFromFolder(filePath, file);
+                    loadEventsFromFolder(filePath, subfolderName || file);
                 } else if (file.endsWith('.js') && !file.endsWith('.test.js')) {
                     const event = require(filePath);
-                    console.log("📒 Successfully loaded Event: ".green, event.name || file);
+
+                    if (subfolderName) {
+                        console.log("📒 Successfully loaded endpoint Event: ".green, `${subfolderName}/${event.name || file}`);
+                    } else {
+                        console.log("📒 Successfully loaded Event: ".green, event.name || file);
+                    }
     
                     if (event.name && event.handler) {
                         const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
