@@ -64,9 +64,7 @@ app.get('/', (req, res) => {
     res.redirect('/home');
 });
 
-app.get('/home', (req, res) => {
-    res.send('Welcome to the Home Page!');
-});
+
 
 
 loadErrors();
