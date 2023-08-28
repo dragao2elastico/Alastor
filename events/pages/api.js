@@ -5,7 +5,7 @@ module.exports = {
         try {
             res.send({
                 "message": "Welcome to the API",
-                "status_code": "200 OK"
+                "status_code": 200
             });
         } catch (error) {
             console.error("Error loading api: ", error);

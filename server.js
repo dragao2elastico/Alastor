@@ -1,3 +1,5 @@
+const { formations, log, loadErrors, clear } = require("./functions");
+clear()
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -19,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/scripts', express.static(path.join(__dirname, 'server', 'scripts')));
 app.use('/style', express.static(path.join(__dirname, 'server', 'style')));
-app.use(express.static(path.join(__dirname, 'server', 'imgs')));
+app.use(express.static(path.join(__dirname, 'server')));
 
 app.use((err, req, res, next) => {
     console.error("Error:", err.stack);
@@ -38,10 +40,8 @@ app.get('/', (req, res) => {
 });
 
 loadEvents(app);
+loadErrors();
 
-app.use((req, res, next) => {
-    res.status(404).sendFile(__dirname + "/server/views/404.html");
-});
 
 app.listen(port, () => {
     console.log(`Server running on:`, `http://localhost:${port}`.cyan);
