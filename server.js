@@ -9,6 +9,7 @@ const fs = require("fs");
 const ejs = require("ejs");
 require("colors");
 const loadEvents = require("./events");
+const loginModule = require('./events/pages/login');
 
 const version = "1.1.2";
 
@@ -64,8 +65,8 @@ app.get('/', (req, res) => {
     res.redirect('/home');
 });
 
-
-
+app.get('/login', loginModule.handler);
+app.post('/login', loginModule.backend);
 
 loadErrors();
 

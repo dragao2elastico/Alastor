@@ -12,7 +12,7 @@ module.exports = {
     name: 'login',
     handler: (req, res, next) => {
         try {
-            const filePath = path.join(__dirname, `../../server/views/${thisFile.name}.html`);
+            const filePath = path.join(__dirname, `../../server/views/login.html`);
             res.sendFile(filePath);
         } catch (error) {
             console.error('An Error Occurred: '.red, error);
@@ -27,7 +27,7 @@ module.exports = {
 
         if (user) {
             // Gera um token de autenticação
-            const token = jwt.sign({ username: user.username }, 'seuSegredoAqui');
+            const token = jwt.sign({ username: user.username }, 'suaChaveSecretaAqui');
 
             res.json({ token });
         } else {
