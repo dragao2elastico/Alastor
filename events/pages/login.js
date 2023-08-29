@@ -8,7 +8,7 @@ const users = [
     { username: 'user', password: 'us2' }
 ];
 
-module.exports = {
+module.exports = thisFile = {
     name: 'login',
     handler: (req, res, next) => {
         try {
@@ -27,9 +27,10 @@ module.exports = {
 
         if (user) {
             // Gera um token de autenticação
-            const token = jwt.sign({ username: user.username }, 'suaChaveSecretaAqui');
+            const token = jwt.sign({ username: user.username }, 'db');
 
-            res.json({ token });
+            // res.json({ token });
+            res.redirect('/home');
         } else {
             res.status(401).json({ message: 'Credenciais inválidas' });
         }
