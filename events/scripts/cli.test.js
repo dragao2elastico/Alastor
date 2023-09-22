@@ -22,7 +22,7 @@ function listFilesAndDirectories(directory) {
         const stats = fs.statSync(itemPath);
 
         if (stats.isDirectory()) {
-            if (item !== 'node_modules' || '.git') {
+            if (item !== 'node_modules' && item !== '.git') {
                 listFilesAndDirectories(itemPath);
             }
         } else {
