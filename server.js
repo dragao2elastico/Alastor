@@ -1,5 +1,5 @@
 const { formations, log, loadErrors, clear } = require("./functions");
-clear()
+// clear()
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -9,8 +9,10 @@ const ejs = require("ejs");
 require("colors");
 const loadEvents = require("./events");
 const loginModule = require('./events/pages/login');
+const ms = require("ms");
+const pkg = require("./package.json")
 
-const version = "1.1.2";
+const version = "1.1.6" || pkg.version;
 
 var askPort = false;
 
@@ -69,8 +71,17 @@ app.post('/login', loginModule.backend);
 
 loadErrors();
 
-module.exports = { app, version };
+module.exports = { app, version, port };
 
 app.listen(port, () => {
-    console.log(`💿 Server running on:`, `http://localhost:${port}`.cyan);
+    setTimeout(() => {
+        console.log(`💿 ${version}: Server running on:`, `http://localhost:${port}${".".white}`.cyan);
+        }, 200);
+    }).on('close', function() {
+        console.warn(`${version}: Server stopped.`);
+    }).on('uncaughtException', error => {
+        if (!error) return false;
+            console.error(`${version}: Uncaught Exception:\n${JSON.stringify({ message: error?.message ?? null })}\n\tStack Trace`)
+    }).on('error', error => {
+        console.error(`${'❌'.red}: Something went wrong when starting the server.`);
 });
