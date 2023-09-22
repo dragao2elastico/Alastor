@@ -3,10 +3,6 @@ clear()
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-<<<<<<< HEAD
-=======
-const axios = require("axios");
->>>>>>> ec1ebdfcb7f1bbde0bf23c1711609d032c4ca498
 const prompt = require("prompt-sync")();
 const fs = require("fs");
 const ejs = require("ejs");
