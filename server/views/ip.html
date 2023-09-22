@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../imgs/favicon.ico" type="image/x-icon">
+    <title>Ip</title>
+    <link rel="stylesheet" href="/style/global.css">
+</head>
+<body>
+    <div class="spoiler-container" onclick="toggleSpoiler(this)">
+        Click to show
+        <div class="spoiler-content" id="ip">
+            Hello, this is your IP address: <%= ip %>
+            <hr> <!-- Linha horizontal -->
+        </div>
+    </div>
+
+    <script>
+        function toggleSpoiler(spoiler) {
+            spoiler.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+/*
+    * <USER>: Your username
+    * <KEY>: Your api key
+    * <ID>: Your user id
+*/
+
+{
+    "e621": {
+        "username": "<USER>",
+        "apiKey": "<KEY>"
+    },
+
+    "danbooru": {
+        "apiKey": "<KEY>"
+    },
+
+    "gelbooru": {
+        "apiKey": "<KEY>",
+        "userId": "<ID>"
+    },
+
+    "furbooru": {
+        "apiKey": "<KEY>"
+    },
+
+    "github": {
+        "user": "<USER>",
+        "apiKey": "<KEY>",
+        "betaApiKey": "<KEY>"
+    },
+
+    "tenor": {
+        "apiKey": "<KEY>"
+    },
+
+    "giphy": {
+        "apiKey": "<KEY>"
+    },
+
+    "soundcloud": {
+        "apiKey": "<KEY>"
+    },
+
+    "youtube": {
+        "apiKey":"<KEY>"
+    }
+}

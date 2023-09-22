@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/player.css">
+    <title>Music Player</title>
+</head>
+<body>
+    <div class="music-player">
+        <div class="music-info">
+            <div class="music-thumb">
+                <img src="../imgs/music-player.jpg" alt="Thumb da Música">
+            </div>
+            <div class="music-details">
+                <h2 class="music-title">Escolha uma opção abaixo</h2>
+            </div>
+        </div>
+        <div class="music-controls">
+            <button class="control-button prev-button">Anterior</button>
+            <button class="control-button play-button">Tocar</button>
+            <button class="control-button next-button">Próxima</button>
+        </div>
+        <audio class="audio"></audio>
+        <div class="volume-slider-container">
+            <input type="range" class="volume-slider" min="0" max="100" value="50">
+        </div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+    <script src="../scripts/player.js"></script>
+</body>
+</html>

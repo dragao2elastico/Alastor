@@ -1,0 +1,9 @@
+/node_modules/*.*
+/node_modules
+/api
+/api/*.*
+package-lock.json
+<<<<<<< HEAD
+config.json
+=======
+>>>>>>> ec1ebdfcb7f1bbde0bf23c1711609d032c4ca498
