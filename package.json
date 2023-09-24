@@ -4,7 +4,6 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon index.js",
         "post": "git add . && git commit -m \"Modified files and folders\" && git push origin main",
         "cli": "node ./events/scripts/cli.test.js"

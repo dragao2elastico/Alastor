@@ -10,7 +10,8 @@ require("colors");
 const loadEvents = require("./events");
 const loginModule = require('./events/pages/login');
 const ms = require("ms");
-const pkg = require("./package.json")
+const pkg = require("./package.json");
+const { hasUncaughtExceptionCaptureCallback } = require("process");
 
 const version = "1.1.6" || pkg.version;
 
@@ -78,10 +79,10 @@ app.listen(port, () => {
         console.log(`💿 ${version}: Server running on:`, `http://localhost:${port}${".".white}`.cyan);
         }, 200);
     }).on('close', function() {
-        console.warn(`${version}: Server stopped.`);
+        console.warn(`❌ ${version}: Server stopped.`);
     }).on('uncaughtException', error => {
         if (!error) return false;
-            console.error(`${version}: Uncaught Exception:\n${JSON.stringify({ message: error?.message ?? null })}\n\tStack Trace`)
+            console.error(`❌ ${version}: Uncaught Exception:\n${JSON.stringify({ message: error?.message ?? null })}\n\tStack Trace`)
     }).on('error', error => {
         console.error(`${'❌'.red}: Something went wrong when starting the server.`);
 });
