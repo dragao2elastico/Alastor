@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     name: 'home',
-    handler: (req, res, next) => {
+    get: (req, res, next) => {
         try {
             const filePath = path.join(__dirname, '../../server/views/home.html');
             res.sendFile(filePath);

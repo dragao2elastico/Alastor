@@ -5,7 +5,7 @@ const ejs = require("ejs");
 module.exports = {
     name: "ip",
     params: ["req", "res"],
-    handler: async (req, res) => {
+    get: async (req, res) => {
         try {
             const response = await fetch("https://api.ipify.org?format=json");
             if (!response.ok) {

@@ -3,7 +3,7 @@ require("colors");
 
 module.exports = thisFile = {
     name: "contact", 
-    handler: (req, res, next) => {
+    get: (req, res, next) => {
         try {
             const filePath = path.join(__dirname, `../../server/views/${thisFile.name}.html`);
             res.sendFile(filePath);

@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     name: 'music',
-    handler: (req, res, next) => {
+    get: (req, res, next) => {
         try {
             const filePath = path.join(__dirname, '../../server/views/player.html');
             res.sendFile(filePath);

@@ -1,7 +1,7 @@
 module.exports = {
     name: "api", 
     params: ["req", "res"],
-    handler: (req, res) => {
+    get: (req, res) => {
         try {
             res.send({
                 "message": "Welcome to the API",

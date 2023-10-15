@@ -28,10 +28,27 @@ const loadEvents = (app) => {
                     } else {
                         console.log("📒 Successfully loaded Event:".green, event.name || file.replace('.js', ''));
                     }
-    
+
                     if (event.name && event.handler) {
                         const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
                         app.get(`/${endpointName}`, event.handler);
+                    }
+    
+                    if (event.name && event.get) {
+                        const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
+                        app.get(`/${endpointName}`, event.get);
+                    }
+
+                    if (event.name && event.post) {
+                        app.post(`/${endpointName}`, event.post);
+                    }
+
+                    if (event.name && event.put) {
+                        app.put(`/${endpointName}`, event.put);
+                    }
+
+                    if (event.name && event.delete) {
+                        app.delete(`/${endpointName}`, event.delete);
                     }
                 }
             });
@@ -47,3 +64,12 @@ const loadEvents = (app) => {
 };
 
 module.exports = loadEvents;
+// if (event.post) {
+//     app.post(`/${endpointName}`, event.post);
+// } else if (event.put) {
+//     app.put(`/${endpointName}`, event.put);
+// } else if (event.delete) {
+//     app.delete(`/${endpointName}`, event.delete);
+// } else {
+//     return
+// }

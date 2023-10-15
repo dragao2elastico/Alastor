@@ -3,7 +3,7 @@ const version = require("../../../server")
 
 module.exports = {
     name: "status", 
-    handler: (req, res, next) => {
+    get: (req, res, next) => {
         try {
             const basicInfo = {
                 name: "Server is:",

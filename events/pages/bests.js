@@ -27,7 +27,7 @@ const characters = [
 
 module.exports = {
     name: "bests", 
-    handler: (req, res, next) => {
+    get: (req, res, next) => {
         try {
             const characterList = characters.map(character => `
                 <div class="character">

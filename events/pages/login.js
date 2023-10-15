@@ -10,7 +10,7 @@ const users = [
 
 module.exports = thisFile = {
     name: 'login',
-    handler: (req, res, next) => {
+    get: (req, res, next) => {
         try {
             const filePath = path.join(__dirname, `../../server/views/login.html`);
             res.sendFile(filePath);
