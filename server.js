@@ -154,7 +154,7 @@ setTimeout(() => {
     app.use((req, res) => {
         res.status(404).sendFile(path.join(__dirname, 'server', 'err', '404.html'));
     });
-}, 5000);
+}, 10000);
 
 module.exports = { app, version, port };
 

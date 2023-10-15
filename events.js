@@ -40,14 +40,17 @@ const loadEvents = (app) => {
                     }
 
                     if (event.name && event.post) {
+                        const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
                         app.post(`/${endpointName}`, event.post);
                     }
 
                     if (event.name && event.put) {
+                        const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
                         app.put(`/${endpointName}`, event.put);
                     }
 
                     if (event.name && event.delete) {
+                        const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
                         app.delete(`/${endpointName}`, event.delete);
                     }
                 }
