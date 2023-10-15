@@ -29,30 +29,40 @@ const loadEvents = (app) => {
                         console.log("📒 Successfully loaded Event:".green, event.name || file.replace('.js', ''));
                     }
 
-                    if (event.name && event.handler) {
+                    if (event.name) {
                         const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
-                        app.get(`/${endpointName}`, event.handler);
+                        switch (true) {
+                            case !!event.handler:
+                                if (event.preParam) app.get(`/${endpointName}`, event.preParam, event.handler);
+                                else app.get(`/${endpointName}`, event.handler);
+                                break;
+                        
+                            case !!event.get:
+                                if (event.preParam) app.get(`/${endpointName}`, event.preParam, event.get);
+                                else app.get(`/${endpointName}`, event.get);
+                                break;
+                        
+                            case !!event.post:
+                                if (event.preParam) app.post(`/${endpointName}`, event.preParam, event.post);
+                                else app.post(`/${endpointName}`, event.post);
+                                break;
+                        
+                            case !!event.put:
+                                if (event.preParam) app.put(`/${endpointName}`, event.preParam, event.put);
+                                else app.put(`/${endpointName}`, event.put);
+                                break;
+                        
+                            case !!event.delete:
+                                if (event.preParam) app.delete(`/${endpointName}`, event.preParam, event.delete);
+                                else app.delete(`/${endpointName}`, event.delete);
+                                break;
+                        
+                            default:
+                                console.warn(`Endpoint ${endpointName} não tem manipuladores de método definidos.`);
+                        }
+                        
                     }
-    
-                    if (event.name && event.get) {
-                        const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
-                        app.get(`/${endpointName}`, event.get);
-                    }
-
-                    if (event.name && event.post) {
-                        const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
-                        app.post(`/${endpointName}`, event.post);
-                    }
-
-                    if (event.name && event.put) {
-                        const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
-                        app.put(`/${endpointName}`, event.put);
-                    }
-
-                    if (event.name && event.delete) {
-                        const endpointName = subfolderName ? `${subfolderName}/${file.replace('.js', '')}` : file.replace('.js', '');
-                        app.delete(`/${endpointName}`, event.delete);
-                    }
+                    
                 }
             });
         });
