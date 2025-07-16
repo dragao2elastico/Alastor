@@ -1,3 +1,5 @@
+# Disclaimer: this is outdated (still working) but i'll no longer update that shit, maybe one thing or another one but nothing so huge
+
 # Alastor
 
 Welcome to the Alastor project repository! This is my official website, encompassing various features and interesting content.
